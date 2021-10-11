@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import ProductList from './ProductList';
+import ProductDetails from './ProductDetails';
+import ProductForm from  './ProductForm';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <ProductList />
+      <ProductDetails />
+      <ProductForm />
   </React.StrictMode>,
   document.getElementById('root')
 );
