@@ -1,26 +1,27 @@
-import {useState, useEffect} from "react"
 import axios from "axios";
 
 function ProductDetails() {
-    let url = window.location.href;
-    const searchParams = new URLSearchParams(url);
-    const id = searchParams.get("http://localhost:3000/?id");
-
-    const [details, setDetails] = useState([]);
-    useEffect(() => {
+    const url = new URL(window.location.href);
+    let searchParams = new URLSearchParams(url.search);
+    if (searchParams.has('id')) {
+        let id = searchParams.get('id');
         axios
             .get(`https://fakestoreapi.com/products/${id}`)
-            .then(response => setDetails(response.data));
-    }, [id]);
-
-    return (
-        <div>
-            <>{details.id}</>
-            <>{details.title}</>
-            <>{details.category}</>
-            <>{details.price}</>
-        </div>
-    );
+            .then(response => {
+                console.log(response.data.price)
+                return (
+                    <div>
+                        <>{response.data.id}</>
+                        <>{response.data.title}</>
+                        <>{response.data.category}</>
+                        <>{response.data.price}</>
+                    </div>
+                );
+            });
+    } else {
+        console.log("Brak id");
+        return null;
+    }
 }
 
 export default ProductDetails;
