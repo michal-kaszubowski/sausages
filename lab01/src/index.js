@@ -66,10 +66,9 @@ function Add() {
     });
     const handleChange = event => {
         setValues({ [event.target.name]: event.target.value });
-        console.log(values);
     }
     const handleSubmit = event => {
-        console.log(values)
+        // console.log(values)
         axios
             .post('https://fakestoreapi.com/products', {
                 title: values.title,
@@ -79,7 +78,8 @@ function Add() {
                 category: values.category
             })
             .then(res => console.log(res.status))
-            .catch(err => console.log(err.status))
+            .catch(err => console.log(err.status));
+        event.preventDefault();
     }
 
     return (
@@ -87,11 +87,11 @@ function Add() {
             <form onSubmit={handleSubmit}>
                 <label>
                     Name:
-                    <input name="title" type="text" onChange={handleChange} required={true}/>
+                    <input name="title" type="text" onChange={handleChange} required={true} placeholder="ProductName"/>
                 </label>
                 <label>
                     Price:
-                    <input name="price" type="number" onChange={handleChange} required={true}/>
+                    <input name="price" type="number" step={0.01} onChange={handleChange} required={true} placeholder="0.00"/>
                 </label>
                 <label>
                     Description:
@@ -103,7 +103,7 @@ function Add() {
                 </label>
                 <label>
                     Category:
-                    <input name="category" type="text" onChange={handleChange} required={true}/>
+                    <input name="category" type="text" onChange={handleChange} required={true} placeholder="Antiques"/>
                 </label>
                 <button type="submit">Add</button>
             </form>
