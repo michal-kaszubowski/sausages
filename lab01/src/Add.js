@@ -25,7 +25,7 @@ const Add = () => (
                 category: "default"
             }}
             validationSchema={validationSchema}
-            onSubmit={values => {
+            onSubmit={(values, actions) => {
                 axios
                     .post('https://fakestoreapi.com/products', {
                         title: values.title,
@@ -39,6 +39,7 @@ const Add = () => (
                         console.log(res.data)
                     })
                     .catch(err => console.log(err.status));
+                actions.resetForm()
             }}
         >
             {({errors, touched}) => (
