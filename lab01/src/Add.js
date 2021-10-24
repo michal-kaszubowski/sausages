@@ -13,7 +13,7 @@ const validate = values => {
         console.log('Wrong title!')
     }
 
-    if (!values.price) {
+    if (values.price.toString().length === 0) {
         errors.title = 'Required'
         console.log('No price!')
     } else if (!/^\d+(\.\d{2})?$/.test(values.price.toString())) {
@@ -38,7 +38,7 @@ const Add = () => {
     const formik = useFormik({
         initialValues: {
             title: "Product",
-            price: 0.00,
+            price: 0,
             description: "",
             image: "",
             category: "default"
