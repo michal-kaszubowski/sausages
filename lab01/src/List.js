@@ -21,7 +21,7 @@ function List() {
                 setAll(res.data);
                 console.log(res.status);
             })
-            .catch(err => console.log(err.status));
+            .catch(err => console.log(err.message));
         console.log("GET query has been send.");
     }, []);
 
@@ -34,7 +34,16 @@ function List() {
          */
 
         <li key={item.id}>
-            <span className="id">{item.id}</span> <span className="title">{item.title}</span> <span className="price">{item.price}</span> <span className="category">{item.category}</span>
+            <span className="id">{item.id}</span>
+            <span className="title">{item.title}</span>
+            <span className="price">{item.price}</span>
+            <span className="category">{item.category}</span>
+            <button className="delete" onClick={ () => {
+                axios
+                    .delete(`https://fakestoreapi.com/products/${item.id}`)
+                    .then(res => console.log(res.status))
+                    .catch(err => console.log(err.message));
+            }}>Delete</button>
         </li>
     ));
 
