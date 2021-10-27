@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {useConfirm} from "material-ui-confirm";
+import Edit from "./Edit";
 
 function List() {
     /** List function component
@@ -49,6 +50,9 @@ function List() {
                     })
                     .catch(() => console.log('Deletion canceled'))
             }}>Delete</button>
+            <button className="editButton" onClick={() => {
+                return Edit
+            }}>Edit</button>
         </li>
     ));
 

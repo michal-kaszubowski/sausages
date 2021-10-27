@@ -5,7 +5,7 @@ import ProductForm from "./ProductForm";
 const handleSubmitFunction = () => {
     return (values, actions) => {
         axios
-            .post('https://fakestoreapi.com/products', {
+            .put('https://fakestoreapi.com/products', {
                 title: values.title,
                 price: values.price,
                 description: values.description,
@@ -21,10 +21,10 @@ const handleSubmitFunction = () => {
     }
 }
 
-const Add = () => (
-    <div className="Add">
-        <ProductForm title="ProductName" price={0} description="" image="" category="DefaultCategory" handleSubmit={handleSubmitFunction()}/>
+const Edit = (props) => (
+    <div className="editForm">
+        <ProductForm title={props.title} price={props.price} description={props.description} image={props.image} category={props.category} handleSubmit={handleSubmitFunction()}/>
     </div>
 );
 
-export default Add
+export default Edit
