@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {useConfirm} from "material-ui-confirm";
-import Edit from "./Edit";
+import Set from "./Set";
 
 function List() {
     /** List function component
@@ -18,7 +18,7 @@ function List() {
     useEffect(() => {
         console.log("Sending query to API ...");
         axios
-            .get('https://fakestoreapi.com/products')
+            .get("https://fakestoreapi.com/products")
             .then(res => {
                 setAll(res.data);
                 console.log(res.status);
@@ -27,7 +27,7 @@ function List() {
         console.log("GET query has been send.");
     }, []);
 
-    const toList = (arr) => arr.map(item => (
+    const toList = arr => arr.map(item => (
         /** Function (arr: Array)
          * toList is supposed to take state
          * which have to be an array and map
@@ -41,7 +41,7 @@ function List() {
             <span className="price">{item.price}</span>
             <span className="category">{item.category}</span>
             <button className="delete" onClick={() => {
-                confirm({description: 'Delete this product?'})
+                confirm({description: "Delete this product?"})
                     .then(() => {
                         axios
                             .delete(`https://fakestoreapi.com/products/${item.id}`)
@@ -51,7 +51,16 @@ function List() {
                     .catch(() => console.log('Deletion canceled'))
             }}>Delete</button>
             <button className="editButton" onClick={() => {
-                return Edit
+                return (
+                    <Set
+                        type="PUT"
+                        title={item.title}
+                        price={item.price}
+                        description={item.description}
+                        image={item.image}
+                        category={item.category}
+                    />
+                );
             }}>Edit</button>
         </li>
     ));
