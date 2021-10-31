@@ -13,8 +13,8 @@ function List() {
      * returned as a list of items.
      */
 
-    const confirm = useConfirm();
     const [all, setAll] = useState([]);
+
     useEffect(() => {
         console.log("Sending query to API ...");
         axios
@@ -26,6 +26,21 @@ function List() {
             .catch(err => console.log(err.message));
         console.log("GET query has been send.");
     }, []);
+    
+    const confirm = useConfirm();
+
+    const handleDelete = id => {
+        return () => {
+            confirm({description: "Delete this product?"})
+                .then(() => {
+                    axios
+                        .delete(`https://fakestoreapi.com/products/${id}`)
+                        .then(res => console.log(res.status))
+                        .catch(err => console.log(err.message))
+                })
+                .catch(() => console.log('Deletion canceled'))
+        }
+    }
 
     const toList = arr => arr.map(item => (
         /** Function (arr: Array)
@@ -40,16 +55,7 @@ function List() {
             <span className="title">{item.title}</span>
             <span className="price">{item.price}</span>
             <span className="category">{item.category}</span>
-            <button className="delete" onClick={() => {
-                confirm({description: "Delete this product?"})
-                    .then(() => {
-                        axios
-                            .delete(`https://fakestoreapi.com/products/${item.id}`)
-                            .then(res => console.log(res.status))
-                            .catch(err => console.log(err.message))
-                    })
-                    .catch(() => console.log('Deletion canceled'))
-            }}>Delete</button>
+            <button className="delete" onClick={handleDelete(item.id)}>Delete</button>
             <button className="editButton" onClick={() => {
                 return (
                     <Set
@@ -61,7 +67,8 @@ function List() {
                         category={item.category}
                     />
                 );
-            }}>Edit</button>
+            }}>Edit
+            </button>
         </li>
     ));
 
