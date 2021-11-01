@@ -1,6 +1,7 @@
 import List from "./List";
 import Set from "./Set";
 import React, {useState} from "react";
+import {ConfirmProvider} from "material-ui-confirm";
 
 const App = () => {
     /** Function
@@ -14,7 +15,9 @@ const App = () => {
 
     return (
         <div className="App">
-            <List setShowEdit={setShowEdit} setEdit={setEdit}/>
+            <ConfirmProvider>
+                <List setShowEdit={setShowEdit} setEdit={setEdit}/>
+            </ConfirmProvider>
             <Set
                 type="POST"
                 title="Product name"

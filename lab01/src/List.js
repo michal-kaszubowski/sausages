@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {useConfirm} from "material-ui-confirm";
-import {ConfirmProvider} from "material-ui-confirm";
 
 function List(props) {
     /** List function component
@@ -81,11 +80,9 @@ function List(props) {
 
     return (
         <div className="List">
-            <ConfirmProvider>
-                <ul>
-                    {toList(all)}
-                </ul>
-            </ConfirmProvider>
+            <ul>
+                {toList(all)}
+            </ul>
         </div>
     );
 
