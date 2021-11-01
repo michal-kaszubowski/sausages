@@ -2,6 +2,12 @@ import List from "./List";
 import Set from "./Set";
 import React, {useState} from "react";
 import {ConfirmProvider} from "material-ui-confirm";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
 const App = () => {
     /** Function
@@ -15,17 +21,32 @@ const App = () => {
 
     return (
         <div className="App">
-            <ConfirmProvider>
-                <List setShowEdit={setShowEdit} setEdit={setEdit}/>
-            </ConfirmProvider>
-            <Set
-                type="POST"
-                title="Product name"
-                price={0}
-                description="Description of the product"
-                image=""
-                category="Category name"
-            />
+            <div className="Router">
+                <Router>
+                    <nav>
+                        <Link to="/">Home</Link>
+                        <Link to="/products">Products</Link>
+                        <Link to="/products/new">New</Link>
+                    </nav>
+                    <Switch>
+                        <Route path="/products" exact={true}>
+                            <ConfirmProvider>
+                                <List setShowEdit={setShowEdit} setEdit={setEdit}/>
+                            </ConfirmProvider>
+                        </Route>
+                        <Route path="/products/new">
+                            <Set
+                                type="POST"
+                                title="Product name"
+                                price={0}
+                                description="Description of the product"
+                                image=""
+                                category="Category name"
+                            />
+                        </Route>
+                    </Switch>
+                </Router>
+            </div>
             {showEdit === true
                 ? <Set
                     type="PUT"
