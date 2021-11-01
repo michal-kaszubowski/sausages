@@ -1,14 +1,19 @@
 import List from "./List";
 import Set from "./Set";
-import {ConfirmProvider} from "material-ui-confirm";
 import React, {useState} from "react";
 
 const App = () => {
+    /** Function
+     * This is the main function of the React
+     * App. It handles every other component
+     * for this project.
+     */
+
     const [showEdit, setShowEdit] = useState(false);
     const [edit, setEdit] = useState({});
 
     return (
-        <ConfirmProvider>
+        <div className="App">
             <List setShowEdit={setShowEdit} setEdit={setEdit}/>
             <Set
                 type="POST"
@@ -29,7 +34,7 @@ const App = () => {
                     setShowEdit={setShowEdit}
                 />
                 : null}
-        </ConfirmProvider>
+        </div>
     );
 }
 

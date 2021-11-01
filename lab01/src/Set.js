@@ -45,7 +45,7 @@ const Set = (props) => {
     }
 
     return (
-        <div className="setForm">
+        <div className="Set">
             <ProductForm
                 title={props.title}
                 price={props.price}

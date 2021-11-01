@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {useConfirm} from "material-ui-confirm";
+import {ConfirmProvider} from "material-ui-confirm";
 
 function List(props) {
     /** List function component
@@ -53,7 +54,7 @@ function List(props) {
             axios.get(`https://fakestoreapi.com/products/${id}`)
                 .then(res => {
                     props.setEdit(res.data);
-                    console.log("Data had been redirected to target component.");
+                    console.log("Data had been redirected to the target component.");
                     props.setShowEdit(true);
                 })
                 .catch(err => console.error(err));
@@ -79,9 +80,13 @@ function List(props) {
     ));
 
     return (
-        <ul>
-            {toList(all)}
-        </ul>
+        <div className="List">
+            <ConfirmProvider>
+                <ul>
+                    {toList(all)}
+                </ul>
+            </ConfirmProvider>
+        </div>
     );
 
 }
