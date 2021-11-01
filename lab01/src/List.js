@@ -50,11 +50,11 @@ function List(props) {
     const handleEdit = id => {
 
         return () => {
-            props.setShowEdit(true);
             axios.get(`https://fakestoreapi.com/products/${id}`)
                 .then(res => {
                     props.setEdit(res.data);
-                    console.log("Data had been redirected to target component successfully");
+                    console.log("Data had been redirected to target component.");
+                    props.setShowEdit(true);
                 })
                 .catch(err => console.error(err));
         }

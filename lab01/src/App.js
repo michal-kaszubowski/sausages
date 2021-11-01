@@ -5,7 +5,7 @@ import React, {useState} from "react";
 
 const App = () => {
     const [showEdit, setShowEdit] = useState(false);
-    const [edit, setEdit] = useState({})
+    const [edit, setEdit] = useState({});
 
     return (
         <ConfirmProvider>
@@ -17,7 +17,6 @@ const App = () => {
                 description="Description of the product"
                 image=""
                 category="Category name"
-                // setShowEdit={setShowEdit} // ???
             />
             {showEdit === true
                 ? <Set

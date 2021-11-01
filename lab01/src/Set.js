@@ -33,7 +33,7 @@ const Set = (props) => {
 
                 case "PUT":
                     // In case of PUT method
-                    axios.put("https://fakestoreapi.com/products", data)
+                    axios.put(`https://fakestoreapi.com/products/${props.id}`, data)
                         .then(res => {
                             console.log(res.status);
                             console.log(res.data);
