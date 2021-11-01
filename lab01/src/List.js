@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {useConfirm} from "material-ui-confirm";
-import Set from "./Set";
 
-function List() {
+function List(props) {
     /** List function component
      * This component is supposed to display all
      * items from external API.
@@ -17,8 +16,7 @@ function List() {
 
     useEffect(() => {
         console.log("Sending query to API ...");
-        axios
-            .get("https://fakestoreapi.com/products")
+        axios.get("https://fakestoreapi.com/products")
             .then(res => {
                 setAll(res.data);
                 console.log(res.status);
@@ -26,19 +24,39 @@ function List() {
             .catch(err => console.log(err.message));
         console.log("GET query has been send.");
     }, []);
-    
+
     const confirm = useConfirm();
 
     const handleDelete = id => {
+        /** Function (id: Integer)
+         * Handles action triggered by delete button.
+         * First it makes sure that user knows what
+         * is going on using confirm from material-ui
+         * and if response is positive posts axios
+         * method delete to server.
+         */
+
         return () => {
             confirm({description: "Delete this product?"})
                 .then(() => {
-                    axios
-                        .delete(`https://fakestoreapi.com/products/${id}`)
+                    axios.delete(`https://fakestoreapi.com/products/${id}`)
                         .then(res => console.log(res.status))
                         .catch(err => console.log(err.message))
                 })
                 .catch(() => console.log('Deletion canceled'))
+        }
+    }
+
+    const handleEdit = id => {
+
+        return () => {
+            props.setShowEdit(true);
+            axios.get(`https://fakestoreapi.com/products/${id}`)
+                .then(res => {
+                    props.setEdit(res.data);
+                    console.log("Data had been redirected to target component successfully");
+                })
+                .catch(err => console.error(err));
         }
     }
 
@@ -56,19 +74,7 @@ function List() {
             <span className="price">{item.price}</span>
             <span className="category">{item.category}</span>
             <button className="delete" onClick={handleDelete(item.id)}>Delete</button>
-            <button className="editButton" onClick={() => {
-                return (
-                    <Set
-                        type="PUT"
-                        title={item.title}
-                        price={item.price}
-                        description={item.description}
-                        image={item.image}
-                        category={item.category}
-                    />
-                );
-            }}>Edit
-            </button>
+            <button className="editButton" onClick={handleEdit(item.id)}>Edit</button>
         </li>
     ));
 

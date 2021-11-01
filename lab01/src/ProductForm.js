@@ -29,7 +29,7 @@ const ProductForm = (props) => (
 
                 <Field name="category"/>
 
-                <button type="submit">Add</button>
+                <button type="submit">Confirm</button>
             </Form>
         )}
     </Formik>
