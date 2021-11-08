@@ -9,7 +9,8 @@ const Redux = require('redux');
  */
 
 const initState = {
-    todos: []
+    todos: [],
+    notes: []
 }
 
 const reducer = (state = initState, action) => {
@@ -32,6 +33,10 @@ const reducer = (state = initState, action) => {
                             ? [ ...acc, { ...curr, done: true }]
                             : [ ...acc, curr ]
                 ) ] };
+        case 'ADD_NOTE':
+            return { ...state, notes: [ ...state, action.payload ] };
+        case 'DELETE_NOTE':
+            return { ...state, notes: [ ...state.notes.filter(note => note.id !== action.payload.id) ] };
         default:
             return state;
     }
