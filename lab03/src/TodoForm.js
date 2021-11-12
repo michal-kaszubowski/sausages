@@ -4,10 +4,14 @@ import {v4} from "uuid";
 import {addTodo} from "./TodoActions";
 
 const TodoForm = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     const handleSubmit = values => {
-        dispatch(addTodo(values));
+        try {
+            dispatch(addTodo(values));
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     return (
@@ -23,11 +27,20 @@ const TodoForm = () => {
                 onSubmit={handleSubmit}
             >
                 <Form>
-                    <Field name="name"/>
+                    <label>
+                        Name:
+                        <Field name="name"/>
+                    </label>
 
-                    <Field name="date" type="date"/>
+                    <label>
+                        Till:
+                        <Field name="date" type="date"/>
+                    </label>
 
-                    <Field name="done" type="checkbox"/>
+                    <label>
+                        Done:
+                        <Field name="done" type="checkbox"/>
+                    </label>
 
                     <button type="submit">Add</button>
                 </Form>
