@@ -1,6 +1,8 @@
 import {connect} from "react-redux";
 import {useDispatch} from "react-redux";
-import {finishTodo} from "./TodoActions";
+import {finishTodo, deleteTodo} from "./TodoActions";
+import TodoForm from "./TodoForm";
+import {useState} from "react";
 
 const TodoList = ({todos}) => {
     /** Component <- {todos} / {todos: todos}
@@ -12,6 +14,8 @@ const TodoList = ({todos}) => {
 
     const dispatch = useDispatch()
 
+    const [edit, setEdit] = useState({edit: false, payload: {}});
+
     return (
         <div className="TodoList">
             <h2>Todos:</h2>
@@ -20,10 +24,13 @@ const TodoList = ({todos}) => {
                     <li key={todo.id}>
                         <span className="date">{todo.date}</span>
                         <span className="name">{todo.name}</span>
-                        {todo.done ? <span>✔️</span> : <button onClick={() => dispatch(finishTodo(todo))}>Done!</button>}
+                        {todo.done ? <span>✔️</span> : <button onClick={() => dispatch(finishTodo(todo))}>Done</button>}
+                        <button onClick={() => setEdit({edit: true, payload: todo})}>Edit</button>
+                        <button onClick={() => dispatch(deleteTodo(todo))}>Delete</button>
                     </li>
                 ))}
             </ul>
+            {edit.edit ? <TodoForm type='UPDATE_TODO' payload={edit.payload} setEdit={setEdit}/> : null}
         </div>
     );
 }

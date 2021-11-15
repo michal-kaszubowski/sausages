@@ -12,3 +12,8 @@ export const finishTodo = payload => ({
     type: 'FINISH_TODO',
     payload
 });
+
+export const deleteTodo = payload => ({
+    type: 'DELETE_TODO',
+    payload
+});

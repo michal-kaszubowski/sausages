@@ -5,7 +5,7 @@ const App = () => {
     return (
         <div className="App">
             <TodoList/>
-            <TodoForm/>
+            <TodoForm type='ADD_TODO'/>
         </div>
     );
 }
