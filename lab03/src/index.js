@@ -7,6 +7,7 @@ import {TodoReducer} from "./TodoReducer";
 import App from "./App";
 
 let store = createStore(TodoReducer);
+store.subscribe(() => console.log(store.getState()));
 
 ReactDOM.render(
     <React.StrictMode>

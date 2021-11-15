@@ -6,9 +6,10 @@ import {addTodo} from "./TodoActions";
 const TodoForm = () => {
     const dispatch = useDispatch();
 
-    const handleSubmit = values => {
+    const handleSubmit = (values, actions) => {
         try {
-            dispatch(addTodo(values));
+            dispatch(addTodo({id: v4(), ...values}));
+            actions.resetForm();
         } catch (error) {
             console.error(error);
         }
@@ -19,9 +20,8 @@ const TodoForm = () => {
             <h3>Add ToDo:</h3>
             <Formik
                 initialValues={{
-                    id: v4(),
                     name: "",
-                    date: null,
+                    date: "",
                     done: false
                 }}
                 onSubmit={handleSubmit}

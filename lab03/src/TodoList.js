@@ -1,4 +1,6 @@
 import {connect} from "react-redux";
+import {useDispatch} from "react-redux";
+import {finishTodo} from "./TodoActions";
 
 const TodoList = ({todos}) => {
     /** Component <- {todos} / {todos: todos}
@@ -8,14 +10,17 @@ const TodoList = ({todos}) => {
      * each has individual key.
      */
 
+    const dispatch = useDispatch()
+
     return (
         <div className="TodoList">
+            <h2>Todos:</h2>
             <ul className="todos">
                 {todos.map(todo => (
                     <li key={todo.id}>
                         <span className="date">{todo.date}</span>
                         <span className="name">{todo.name}</span>
-                        {todo.done ? <span>✔️</span> : <span>❌️</span>}
+                        {todo.done ? <span>✔️</span> : <button onClick={() => dispatch(finishTodo(todo))}>Done!</button>}
                     </li>
                 ))}
             </ul>
