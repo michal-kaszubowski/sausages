@@ -12,7 +12,7 @@ const TodoList = ({todos}) => {
      * each has individual key.
      */
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     const [edit, setEdit] = useState({edit: false, payload: {}});
 
