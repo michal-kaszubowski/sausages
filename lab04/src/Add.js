@@ -6,31 +6,28 @@ import {addMovie, addDirector} from "./ducks/actions";
 function Add(props) {
     const dispatch = useDispatch();
 
-    const initMovie = {
-        title: "",
-        year: 2000
-    }
-
-    const initDirector = {
-        firstName: "",
-        lastName: "",
-        age: 0
-    }
-
     const handleSubmit = (values, actions) => {
+        console.log("Received values: ", values);
         switch (props.itemType) {
             case "movie":
                 try {
-                    console.log("Trying to dispatch: ", values);
-                    dispatch(addMovie({id: v4(), ...values}));
+                    dispatch(addMovie({
+                        id: v4(),
+                        title: values.title,
+                        year: values.year
+                    }));
                     return actions.resetForm();
                 } catch (error) {
                     return console.error(error);
                 }
             case "director":
                 try {
-                    console.log("Trying to dispatch: ", values);
-                    dispatch(addDirector({id: v4(), ...values}));
+                    dispatch(addDirector({
+                        id: v4(),
+                        firstName: values.firstName,
+                        lastName: values.lastName,
+                        age: values.age
+                    }));
                     return actions.resetForm();
                 } catch (error) {
                     return console.error(error);
@@ -67,7 +64,13 @@ function Add(props) {
     return (
         <div className="Add">
             <Formik
-                initialValues={props.itemType === "movie" ? initMovie : initDirector}
+                initialValues={{
+                    title: "",
+                    year: 0,
+                    firstName: "",
+                    lastName: "",
+                    age: 0
+                }}
                 onSubmit={handleSubmit}
             >
                 {fields}
