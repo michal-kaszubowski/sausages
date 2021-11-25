@@ -17,12 +17,6 @@ function Add(props) {
         age: 0
     }
 
-    const initActor = {
-        firstName: "",
-        lastName: "",
-        age: 0
-    }
-
     const handleSubmit = (values, actions) => {
         switch (props.itemType) {
             case "movie":
@@ -73,7 +67,7 @@ function Add(props) {
     return (
         <div className="Add">
             <Formik
-                initialValues={props.itemType === "movie" ? initMovie : props.itemType === "director" ? initDirector : initActor}
+                initialValues={props.itemType === "movie" ? initMovie : initDirector}
                 onSubmit={handleSubmit}
             >
                 {fields}

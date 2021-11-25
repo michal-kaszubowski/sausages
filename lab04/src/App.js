@@ -7,9 +7,12 @@ function App() {
     return (
         <div className="app">
             <div className="add">
-                <select name="itemTypeSelect" onChange={event => setItemType(event.target.value)}>
-                    <option>Movie</option>
-                    <option>Director</option>
+                <select name="itemTypeSelect" onChange={event => {
+                    console.log("Selected value: ", event.target.value);
+                    setItemType(event.target.value);
+                }}>
+                    <option>movie</option>
+                    <option>director</option>
                 </select>
                 <Add itemType={itemType}/>
             </div>
