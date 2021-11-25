@@ -28,6 +28,7 @@ function Add(props) {
         switch (props.itemType) {
             case "movie":
                 try {
+                    console.log("Trying to dispatch: ", values);
                     dispatch(addMovie({id: v4(), ...values}));
                     return actions.resetForm();
                 } catch (error) {
@@ -35,6 +36,7 @@ function Add(props) {
                 }
             case "director":
                 try {
+                    console.log("Trying to dispatch: ", values);
                     dispatch(addDirector({id: v4(), ...values}));
                     return actions.resetForm();
                 } catch (error) {
