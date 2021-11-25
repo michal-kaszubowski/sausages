@@ -4,5 +4,7 @@ export const reducer = (state = {movies: [], directors: []}, action) => {
             return {...state, movies: [...state.movies, action.payload]};
         case 'ADD_DIRECTOR':
             return {...state, directors: [...state.directors, action.payload]};
+        default:
+            return null
     }
 }

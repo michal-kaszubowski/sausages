@@ -1,7 +1,7 @@
 import Add from "./Add";
 import {useState} from "react";
 
-function App() {
+const App = () => {
     const [itemType, setItemType] = useState("movie");
 
     return (
