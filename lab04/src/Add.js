@@ -6,22 +6,15 @@ import {addMovie, addDirector} from "./ducks/actions";
 function Add(props) {
     const dispatch = useDispatch();
 
-    const initiateValues = () => {
-        switch (props.itemType) {
-            case "movie":
-                return {
-                    title: "",
-                    year: 2000
-                }
-            case "director":
-                return {
-                    firstName: "",
-                    lastName: "",
-                    age: 0
-                }
-            default:
-                return console.error("Error! Mismatching itemType, initiation of values failed.")
-        }
+    const initMovie = {
+        title: "",
+        year: 2000
+    }
+
+    const initDirector = {
+        firstName: "",
+        lastName: "",
+        age: 0
     }
 
     const handleSubmit = (values, actions) => {
@@ -74,7 +67,7 @@ function Add(props) {
     return (
         <div className="Add">
             <Formik
-                initialValues={initiateValues}
+                initialValues={props.itemType === "movie" ? initMovie : initDirector}
                 onSubmit={handleSubmit}
             >
                 {fields}
