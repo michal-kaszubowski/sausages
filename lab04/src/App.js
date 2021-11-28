@@ -1,6 +1,7 @@
 import {useState} from "react";
 import Add from "./Add";
 import Display from "./Display";
+import List from "./List";
 
 const App = () => {
     console.log("Entering App component...")
@@ -18,6 +19,7 @@ const App = () => {
                 </select>
                 <Add itemType={itemType}/>
             </div>
+            {console.log("List output: ", List)}
             <Display itemType="movie"/>
         </div>
     );

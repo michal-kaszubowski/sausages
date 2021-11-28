@@ -16,12 +16,13 @@ const Display = props => {
             </div>
         );
     }
-
-    return connect(
+    const tmp = connect(
         props.itemType === "movie"
             ? state => ({items: state.movies})
             : state => ({items: state.directors})
     )(List);
+    console.log("Display connect() output: ", tmp);
+    return (<div>...</div>);
 }
 
 export default Display
