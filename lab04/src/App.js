@@ -1,11 +1,13 @@
-import Add from "./Add";
 import {useState} from "react";
+import Add from "./Add";
+import Display from "./Display";
 
 const App = () => {
+    console.log("Entering App component...")
     const [itemType, setItemType] = useState("movie");
 
     return (
-        <div className="app">
+        <div className="App">
             <div className="add">
                 <select name="itemTypeSelect" onChange={event => {
                     console.log("Selected value: ", event.target.value);
@@ -16,6 +18,7 @@ const App = () => {
                 </select>
                 <Add itemType={itemType}/>
             </div>
+            <Display itemType="movie"/>
         </div>
     );
 }
