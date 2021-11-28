@@ -15,11 +15,8 @@ const List = ({items}) => {
     );
 }
 
-const mapStateToProps = state => {
-    console.log("Mapping movies to props...");
-    return {
-        items: state.movies
-    };
-}
+const mapMoviesToProps = state => ({items: state.movies});
+const mapDirectorsToProps = state => ({items: state.directors});
 
-export default connect(mapStateToProps)(List);
+export const ListMovies = connect(mapMoviesToProps)(List);
+export const ListDirectors = connect(mapDirectorsToProps)(List);
