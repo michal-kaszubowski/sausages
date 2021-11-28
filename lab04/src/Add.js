@@ -42,17 +42,32 @@ const Add = props => {
             case "movie":
                 return (
                     <Form>
-                        <Field name="title" type="text"/>
-                        <Field name="year" type="number"/>
+                        <label>
+                            Title:
+                            <Field name="title" type="text"/>
+                        </label>
+                        <label>
+                            Year:
+                            <Field name="year" type="number"/>
+                        </label>
                         <button type="submit">Add</button>
                     </Form>
                 );
             case "director":
                 return (
                     <Form>
-                        <Field name="firstName" type="text"/>
-                        <Field name="lastName" type="text"/>
-                        <Field name="age" type="number"/>
+                        <label>
+                            Name:
+                            <Field name="firstName" type="text"/>
+                        </label>
+                        <label>
+                            Surname:
+                            <Field name="lastName" type="text"/>
+                        </label>
+                        <label>
+                            Age:
+                            <Field name="age" type="number"/>
+                        </label>
                         <button type="submit">Add</button>
                     </Form>
                 );

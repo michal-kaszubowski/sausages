@@ -1,13 +1,15 @@
-import {connect} from "react-redux";
+import {connect, useDispatch} from "react-redux";
 
 const List = ({items}) => {
-    console.log("Received items: ", items);
+    const dispatch = useDispatch();
+
     return (
         <div className="List">
             <ul className="list">
                 {items.map(item => (
                     <li key={item.id}>
-                        {Object.entries(item).map(prop => <span>{prop}</span>)}
+                        {Object.entries(item).map(prop => (<span>{prop[1]}</span>))}
+                        <button onClick={() => dispatch()}>Delete</button>
                     </li>
                 ))}
             </ul>
