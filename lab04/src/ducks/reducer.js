@@ -1,5 +1,4 @@
-const initialState = {
-    movies: [
+const initMovies = [
         {
             id: "733cf3a0-dc02-4efd-8dd8-40f383ec2ce6",
             title: "Phineas and Ferb",
@@ -20,7 +19,9 @@ const initialState = {
             title: "Amphibia",
             year: 2019
         }
-    ],
+    ]
+
+const initDirectors = {
     directors: [
         {
             id: "b223ed54-faa4-42d7-9fa6-f7fd6e49894c",
@@ -43,7 +44,7 @@ const initialState = {
     ]
 }
 
-export const reducer = (state = initialState, action) => {
+export const MovieReducer = (state = initMovies, action) => {
     switch (action.type) {
         case 'ADD_MOVIE':
             return {...state, movies: [...state.movies, action.payload]};

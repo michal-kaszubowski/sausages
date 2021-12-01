@@ -1,6 +1,7 @@
 import {useState} from "react";
 import Add from "./Add";
-import {display} from "./display";
+import ListMovies from "./ListMovies";
+import ListDirectors from "./ListDirectors";
 
 const App = () => {
     const [itemType, setItemType] = useState("movie");
@@ -15,8 +16,9 @@ const App = () => {
                     <option>director</option>
                 </select>
                 <Add itemType={itemType}/>
-                {display("movie")}
             </div>
+            <ListMovies/>
+            <ListDirectors/>
         </div>
     );
 }
