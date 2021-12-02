@@ -1,7 +1,8 @@
 import {Field, Form, Formik} from "formik";
 import {useDispatch} from "react-redux";
 import {v4} from "uuid";
-import {addMovie, addDirector} from "./ducks/actions";
+import {addMovie} from "./ducks/movies/actions";
+import {addDirector} from "./ducks/directors/actions";
 
 const Add = props => {
     const dispatch = useDispatch();

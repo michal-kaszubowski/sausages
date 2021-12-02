@@ -1,5 +1,5 @@
 import {connect, useDispatch} from "react-redux";
-import {deleteMovie} from "./ducks/actions";
+import {deleteMovie} from "./ducks/movies/actions";
 
 const ListMovies = ({movies}) => {
     const dispatch = useDispatch();

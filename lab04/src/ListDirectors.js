@@ -1,5 +1,5 @@
 import {connect, useDispatch} from "react-redux";
-import {deleteDirector} from "./ducks/actions";
+import {deleteDirector} from "./ducks/directors/actions";
 
 const ListDirectors = ({directors}) => {
     const dispatch = useDispatch();
