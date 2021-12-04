@@ -9,9 +9,9 @@ const ListDirectors = ({directors}) => {
             <ul className="list">
                 {directors.map(director => (
                     <li key={director.id}>
-                        <>{director.firstName}</>
-                        <>{director.lastName}</>
-                        <>Age: {director.age}</>
+                        <span className="firstName">{director.firstName}</span>
+                        <span className="lastName">{director.lastName}</span>
+                        <span className="age">Age: {director.age}</span>
                         <button onClick={() => dispatch(deleteDirector(director.id))}>Delete</button>
                     </li>
                 ))}
