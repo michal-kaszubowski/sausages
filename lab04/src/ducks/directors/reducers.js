@@ -9,6 +9,8 @@ export const directorReducer = (state = initDirectors, action) => {
                 lastName: action.payload.lastName,
                 age: action.payload.age
             }];
+        case 'DELETE_DIRECTOR':
+            return state.filter(director => director.id !== action.payload);
         default:
             return state;
     }
