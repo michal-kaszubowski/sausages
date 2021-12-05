@@ -1,5 +1,5 @@
 import {connect, useDispatch} from "react-redux";
-import {deleteMovie} from "./ducks/movies/actions";
+import {deleteMovie} from "../ducks/movies/actions";
 
 const ListMovies = ({movies}) => {
     const dispatch = useDispatch();
@@ -11,7 +11,8 @@ const ListMovies = ({movies}) => {
                     <li key={movie.id}>
                         <span className="title">{movie.title}</span>
                         <span className="year">Year of production: {movie.year}</span>
-                        <button onClick={() => dispatch(deleteMovie(movie.id))}>Delete</button>
+                        <button>More</button>
+                        <span onClick={() => dispatch(deleteMovie(movie.id))}>🗑️</span>
                     </li>
                 ))}
             </ul>
