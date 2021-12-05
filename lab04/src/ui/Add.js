@@ -8,14 +8,13 @@ const Add = props => {
     const dispatch = useDispatch();
 
     const handleSubmit = (values, actions) => {
-        console.log("Received values: ", values);
         switch (props.itemType) {
             case "movie":
                 try {
                     dispatch(addMovie({
                         id: v4(),
                         title: values.title,
-                        year: values.year
+                        year: values.year,
                     }));
                     return actions.resetForm();
                 } catch (error) {
@@ -51,7 +50,7 @@ const Add = props => {
                             Year:
                             <Field name="year" type="number"/>
                         </label>
-                        <button type="submit">Add</button>
+                        <button type="submit">✔️</button>
                     </Form>
                 );
             case "director":
@@ -69,7 +68,7 @@ const Add = props => {
                             Age:
                             <Field name="age" type="number"/>
                         </label>
-                        <button type="submit">Add</button>
+                        <button type="submit">✔️</button>
                     </Form>
                 );
             default:

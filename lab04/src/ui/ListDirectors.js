@@ -13,7 +13,7 @@ const ListDirectors = ({directors}) => {
                         <span className="lastName">{director.lastName}</span>
                         <span className="age">Age: {director.age}</span>
                         <button>More</button>
-                        <span onClick={() => dispatch(deleteDirector(director.id))}>🗑️</span>
+                        <button onClick={() => dispatch(deleteDirector(director.id))}>🗑️</button>
                     </li>
                 ))}
             </ul>

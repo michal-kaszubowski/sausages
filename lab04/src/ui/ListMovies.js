@@ -10,9 +10,9 @@ const ListMovies = ({movies}) => {
                 {movies.map(movie => (
                     <li key={movie.id}>
                         <span className="title">{movie.title}</span>
-                        <span className="year">Year of production: {movie.year}</span>
+                        <span className="year">{movie.year}</span>
                         <button>More</button>
-                        <span onClick={() => dispatch(deleteMovie(movie.id))}>🗑️</span>
+                        <button onClick={() => dispatch(deleteMovie(movie.id))}>🗑️</button>
                     </li>
                 ))}
             </ul>

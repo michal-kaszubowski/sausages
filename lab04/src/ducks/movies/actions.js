@@ -12,3 +12,8 @@ export const updateMovie = payload => ({
     type: 'UPDATE_MOVIE',
     payload
 });
+
+export const addDirectorToMovie = payload => ({
+    type: 'ADD_DIRECTOR_TO_MOVIE',
+    payload
+});
