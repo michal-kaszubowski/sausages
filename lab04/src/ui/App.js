@@ -1,4 +1,5 @@
 import {useState} from "react";
+import Dashboard from "./Dashboard";
 import Add from "./Add";
 import ListMovies from "./ListMovies";
 import ListDirectors from "./ListDirectors";
@@ -8,6 +9,7 @@ const App = () => {
 
     return (
         <div className="App">
+            <Dashboard/>
             <div className="add">
                 <select name="itemTypeSelect" onChange={event => {
                     setItemType(event.target.value);
