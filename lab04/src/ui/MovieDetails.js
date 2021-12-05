@@ -7,6 +7,7 @@ const MovieDetails = movie => {
             <div className="year">{movie.year}</div>
             <div className="director">{movie.director}</div>
             <SelectDirector id={movie.id}/>
+            <button>Edit</button>
         </div>
     );
 }
