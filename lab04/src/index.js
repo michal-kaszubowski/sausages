@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {store} from "./ducks/store";
 import {Provider} from 'react-redux';
-import App from './ui/App';
+import App from './App';
 
 store.subscribe(() => console.log("Current state: ", store.getState()));
 

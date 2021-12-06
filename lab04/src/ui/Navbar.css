@@ -1,0 +1,23 @@
+.Navbar {
+  background-color: #1a759f;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.Navbar div {
+  margin: 20px;
+}
+
+.Navbar div:hover {
+  cursor: pointer;
+  color: #d9ed92;
+}
+
+.Navbar div:active {
+  color: #76c893;
+}
+/*# sourceMappingURL=Navbar.css.map */

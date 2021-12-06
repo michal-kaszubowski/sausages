@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import {Field, Form, Formik} from "formik";
-import {addDirectorToMovie} from "../ducks/movies/actions";
+import {addDirectorToMovie} from "./ducks/movies/actions";
 
 const SelectDirectors = ({directors, addDirectorToMovie}, props) => {
 

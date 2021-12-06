@@ -1,4 +1,4 @@
-import SelectDirector from "./SelectDirector";
+import SelectDirector from "../SelectDirector";
 
 const MovieDetails = movie => {
     return (
