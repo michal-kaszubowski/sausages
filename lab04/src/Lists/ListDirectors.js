@@ -13,7 +13,6 @@ const ListDirectors = ({directors}) => {
                     <li key={director.id}>
                         <span className="firstName">{director.firstName}</span>
                         <span className="lastName">{director.lastName}</span>
-                        <button id="more">More</button>
                         <button id="bin" onClick={() => dispatch(deleteDirector(director.id))}>🗑️</button>
                     </li>
                 ))}

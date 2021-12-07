@@ -1,7 +1,12 @@
 .ListMovies li {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #1a759f;
 }
 
 .ListMovies li .title {
@@ -9,7 +14,19 @@
   font-size: 14pt;
 }
 
-.ListMovies li #more {
-  margin-left: 15px;
+.ListMovies li #bin {
+  position: absolute;
+  right: 10px;
+}
+
+.ListMovies li:hover {
+  cursor: pointer;
+  color: #34a0a4;
+  background-color: #b5e48c;
+}
+
+.ListMovies li:active {
+  color: #34a0a4;
+  background-color: #76c893;
 }
 /*# sourceMappingURL=ListMovies.css.map */

@@ -13,7 +13,6 @@ const ListMovies = ({movies}) => {
                     <li key={movie.id}>
                         <span className="title">{movie.title}</span>
                         <span className="year">{movie.year}</span>
-                        <button id="more">More</button>
                         <button id="bin" onClick={() => dispatch(deleteMovie(movie.id))}>🗑️</button>
                     </li>
                 ))}
