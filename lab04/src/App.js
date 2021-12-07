@@ -4,7 +4,7 @@ import Dashboard from "./Dashboard";
 import Add from "./Add";
 import ListMovies from "./Lists/ListMovies";
 import ListDirectors from "./Lists/ListDirectors";
-import "./ui/App.css"
+import "./ui/App.css";
 
 const App = () => {
     const [itemType, setItemType] = useState("movie");
@@ -13,7 +13,7 @@ const App = () => {
         <div className="App">
             <Navbar/>
             <Dashboard/>
-            <div className="add">
+            <div className="addForm">
                 <select name="itemTypeSelect" onChange={event => {
                     setItemType(event.target.value);
                 }}>

@@ -1,4 +1,5 @@
 import {connect} from "react-redux";
+import "./ui/Dashboard.css";
 
 const Dashboard = ({movies}) => {
     return (

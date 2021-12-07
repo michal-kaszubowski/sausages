@@ -1,0 +1,15 @@
+.ListMovies li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.ListMovies li .title {
+  width: 200px;
+  font-size: 14pt;
+}
+
+.ListMovies li #more {
+  margin-left: 15px;
+}
+/*# sourceMappingURL=ListMovies.css.map */

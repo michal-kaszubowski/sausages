@@ -1,0 +1,59 @@
+.Dashboard {
+  margin: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.Dashboard .movie {
+  width: calc((100% - 120px) / 3);
+  height: 250px;
+  border-radius: 10px;
+  background-color: #1a759f;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+}
+
+.Dashboard .movie .cover {
+  height: 100%;
+  width: 50%;
+  border-radius: 10px;
+  background-color: #184e77;
+}
+
+.Dashboard .movie .title {
+  margin: 10px;
+  font-size: 14pt;
+  font-weight: bold;
+}
+
+.Dashboard .movie .year {
+  margin-left: 10px;
+  font-size: 10pt;
+}
+
+.Dashboard .movie .director {
+  margin-left: 10px;
+  font-style: italic;
+}
+
+.Dashboard .movie:hover {
+  cursor: pointer;
+  color: #34a0a4;
+  background-color: #b5e48c;
+}
+
+.Dashboard .movie:active {
+  color: #34a0a4;
+  background-color: #76c893;
+}
+/*# sourceMappingURL=Dashboard.css.map */
