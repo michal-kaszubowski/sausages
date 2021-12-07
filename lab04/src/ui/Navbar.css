@@ -1,4 +1,5 @@
 .Navbar {
+  position: relative;
   width: 100%;
   height: 60px;
   background-color: #1a759f;
@@ -24,5 +25,10 @@
 
 .Navbar div:active {
   color: #76c893;
+}
+
+.Navbar div.home {
+  position: absolute;
+  left: 0;
 }
 /*# sourceMappingURL=Navbar.css.map */
