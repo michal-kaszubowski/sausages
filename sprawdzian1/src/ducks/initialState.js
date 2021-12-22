@@ -1,22 +1,22 @@
 export const initialState = { packs: [
         {
             addressee: 'Mikhail Kashubov',
-            itemA: 'Beans'
+            items: {a: 'Beans'}
         },
         {
             addressee: 'Mike Kashubovsky',
-            itemA: 'Turtle'
+            items: {a: 'Turtle'}
         },
         {
             addressee: 'Michael Kashuber',
-            itemA: 'Beer'
+            items: {a: 'Beer'}
         },
         {
             addressee: 'Mateo Dante',
-            itemA: 'Money'
+            items: {a: 'Money'}
         },
         {
             addressee: 'Mathias Benocci',
-            itemA: 'Donut'
+            items: {a: 'Donut'}
         }
     ] }
