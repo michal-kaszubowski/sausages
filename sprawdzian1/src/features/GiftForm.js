@@ -1,6 +1,5 @@
 import {Field, Form, Formik} from "formik";
 import {useDispatch, connect} from "react-redux";
-import {v4} from "uuid";
 import {updatePack} from "../ducks/actions";
 
 const GiftForm = ({packs}) => {
@@ -8,7 +7,7 @@ const GiftForm = ({packs}) => {
 
     const handleSubmit = (values, actions) => {
         try {
-            dispatch(updatePack({id: v4(), ...values}));
+            dispatch(updatePack({values}));
             actions.resetForm();
         } catch (error) {
             console.error(error);
