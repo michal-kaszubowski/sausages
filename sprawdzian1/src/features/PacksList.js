@@ -1,6 +1,9 @@
-import {connect} from "react-redux";
+import {connect, useDispatch} from "react-redux";
+import {deletePack} from "../ducks/actions";
 
 const PacksList = ({packs}) => {
+    const dispatch = useDispatch()
+
     return (
         <div className="list">
             <h2>Packs for delivery:</h2>
@@ -13,7 +16,7 @@ const PacksList = ({packs}) => {
                         ))}
                     </div>
                     <button>Add new gift!</button>
-                    <button>Delete gift.</button>
+                    <button onClick={dispatch(deletePack)}>Delete gift.</button>
                 </div>
             ))}
         </div>
