@@ -13,6 +13,7 @@ const PacksList = ({packs}) => {
                         ))}
                     </div>
                     <button>Add new gift!</button>
+                    <button>Delete gift.</button>
                 </div>
             ))}
         </div>
