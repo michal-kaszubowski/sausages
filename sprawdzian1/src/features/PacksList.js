@@ -7,7 +7,6 @@ const PacksList = ({packs}) => {
             {packs.map(pack => (
                 <div className="pack">
                     <div>{pack.addressee}</div>
-                    <div>{pack.itemA}</div>
                     <div>
                         {pack.items.map(item => (
                             <div className="item">{item}</div>
