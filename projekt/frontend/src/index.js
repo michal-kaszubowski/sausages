@@ -1,9 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
-import reportWebVitals from './reportWebVitals';
+import reportWebVitals from './tests/reportWebVitals';
 import {Provider} from "react-redux";
-import {store} from "./ducks/store";
+import {store} from "./store";
+import {fetchManufacturers} from "./ducks/manufacturers/operations";
+import {fetchSausages} from  "./ducks/sausages/operations";
+import {fetchSpices} from "./ducks/spices/operations";
+
+fetchManufacturers();
+fetchSausages();
+fetchSpices();
 
 ReactDOM.render(
     <React.StrictMode>

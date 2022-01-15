@@ -1,11 +1,17 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
+
 const sausages = require('./routes/sausages');
 const manufacturers = require('./routes/manufacturers');
+const spices = require('./routes/spices')
 
+app.use(cors());
 app.use(express.json());
+
 app.use('/sausages', sausages);
 app.use('/manufacturers', manufacturers);
+app.use('/spices', spices);
 
 require('dotenv').config();
 const dbConnData = {
