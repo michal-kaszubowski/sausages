@@ -17,13 +17,18 @@ const sausageSchema = new Schema({
         max: 100
     },
     image: {
-        type:String,
+        type: String,
         required: false
     },
     manufacturer: {
         type: Schema.Types.ObjectId,
         ref: 'Manufacturer',
         required: true
+    },
+    spice: {
+        type: Schema.Types.ObjectId,
+        ref: 'Spice',
+        required: false
     }
 });
 

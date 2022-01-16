@@ -12,7 +12,7 @@ export const fetchSpices = () => {
     return async dispatch => {
         try {
             await axios
-                .get(`https://localhost:${port}/spices`)
+                .get(`http://localhost:${port}/spices`)
                 .then(response => {
                     dispatch(fetchSpicesSuccess(response.data));
                 });
@@ -22,11 +22,11 @@ export const fetchSpices = () => {
     }
 }
 
-export const addSpices = payload => {
+export const addSpice = payload => {
     return async dispatch => {
         try {
             await axios
-                .post(`https://localhost:${port}/spices`, payload);
+                .post(`http://localhost:${port}/spices`, payload);
             dispatch(addSpiceSuccess(payload));
         } catch (err) {
             console.log(err);
@@ -34,11 +34,11 @@ export const addSpices = payload => {
     }
 }
 
-export const updateSpices = payload => {
+export const updateSpice = payload => {
     return async dispatch => {
         try {
             await axios
-                .put(`https://localhost:${port}/spices/:${payload.id}`, payload);
+                .put(`http://localhost:${port}/spices/:${payload.id}`, payload);
             dispatch(updateSpiceSuccess(payload));
         } catch (err) {
             console.log(err);
@@ -46,11 +46,11 @@ export const updateSpices = payload => {
     }
 }
 
-export const deleteSpices = payload => {
+export const deleteSpice = payload => {
     return async dispatch => {
         try {
             await axios
-                .post(`https://localhost:${port}/spices/:${payload.id}`, payload);
+                .post(`http://localhost:${port}/spices/:${payload.id}`);
             dispatch(deleteSpiceSuccess(payload));
         } catch (err) {
             console.log(err);

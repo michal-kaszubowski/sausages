@@ -18,4 +18,4 @@ const spiceSchema = new Schema({
     }
 });
 
-module.exports = model('Sausage', spiceSchema);
+module.exports = model('Spice', spiceSchema);

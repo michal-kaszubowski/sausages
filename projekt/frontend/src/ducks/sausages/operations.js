@@ -3,7 +3,8 @@ import {
     addSausageSuccess,
     deleteSausageSuccess,
     fetchSausagesSuccess,
-    updateSausageSuccess
+    updateSausageSuccess,
+    addSpiceToSausageSuccess
 } from "./actions";
 
 const port = process.env.PORT || 5000
@@ -12,12 +13,12 @@ export const fetchSausages = () => {
     return async dispatch => {
         try {
             await axios
-                .get(`https://localhost:${port}/sausages`)
+                .get(`http://localhost:${port}/sausages`)
                 .then(response => {
                     dispatch(fetchSausagesSuccess(response.data));
                 });
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
     }
 }
@@ -26,10 +27,10 @@ export const addSausage = payload => {
     return async dispatch => {
         try {
             await axios
-                .post(`https://localhost:${port}/sausages`, payload);
+                .post(`http://localhost:${port}/sausages`, payload);
             dispatch(addSausageSuccess(payload));
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
     }
 }
@@ -38,10 +39,10 @@ export const updateSausage = payload => {
     return async dispatch => {
         try {
             await axios
-                .put(`https://localhost:${port}/sausages/:${payload.id}`, payload);
+                .put(`http://localhost:${port}/sausages/:${payload.id}`, payload);
             dispatch(updateSausageSuccess(payload));
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
     }
 }
@@ -50,10 +51,22 @@ export const deleteSausage = payload => {
     return async dispatch => {
         try {
             await axios
-                .delete(`https://localhost:${port}/sausages/:${payload.id}`);
+                .delete(`http://localhost:${port}/sausages/:${payload.id}`);
             dispatch(deleteSausageSuccess(payload));
         } catch (err) {
-            console.log(err);
+            console.error(err);
+        }
+    }
+}
+
+export const addSpiceToSausage = payload => {
+    return async dispatch => {
+        try {
+            await axios
+                .patch(`http://localhost:${port}/sausages/:${payload.id}`, payload);
+            dispatch(addSpiceToSausageSuccess(payload));
+        } catch (err) {
+            console.error(err);
         }
     }
 }

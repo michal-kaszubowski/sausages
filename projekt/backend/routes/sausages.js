@@ -5,7 +5,10 @@ const Sausage = require('../models/Sausage');
 
 router.get('/', async (req, res) => {
     try {
-        const result = await Sausage.find().populate('manufacturer', '-_id -__v');
+        const result = await Sausage
+            .find()
+            .populate('manufacturer', '-_id -__v')
+            .populate('spice', '-_id -__v');
         return res.send(result);
     } catch (error) {
         console.log(">! ERROR cannot GET");
@@ -25,7 +28,10 @@ router.post('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const result = await Sausage.find({_id: req.params.id}).populate('manufacturer', '-_id -__v');
+        const result = await Sausage
+            .find({_id: req.params.id})
+            .populate('manufacturer', '-_id -__v')
+            .populate('spice', '-_id -__v');
         return res.send(result);
     } catch (error) {
         console.log(">! ERROR cannot GET specified sausage");
@@ -34,7 +40,6 @@ router.get('/:id', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-    // Requires full object
     try {
         await Sausage.findOneAndReplace({_id: req.params.id}, req.body, err =>
             err ? console.log(err) : res.send(">$ OK, replaced")
@@ -57,7 +62,6 @@ router.delete('/:id', async (req, res) => {
 });
 
 router.patch('/:id', async (req, res) => {
-    // Requires only these parameters which should be changed
     try {
         await Sausage.findOneAndUpdate({_id: req.params.id}, req.body, err =>
             err ? console.log(err) : res.send(">$ OK, updated")
