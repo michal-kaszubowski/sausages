@@ -1,7 +1,7 @@
-export const manufacturerReducer = (state = {}, action) => {
+export const manufacturerReducer = (state = [], action) => {
     switch (action.type) {
         case 'FETCH_MANUFACTURERS':
-            return [action.payload];
+            return action.payload;
         case 'ADD_MANUFACTURER':
             return [...state, {
                 id: action.payload.id,

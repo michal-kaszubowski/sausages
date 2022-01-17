@@ -1,7 +1,7 @@
-export const sausageReducer = (state = {}, action) => {
+export const sausageReducer = (state = [], action) => {
     switch (action.type) {
         case 'FETCH_SAUSAGES':
-            return [action.payload];
+            return action.payload;
         case 'ADD_SAUSAGE':
             return [...state, {
                 id: action.payload.id,

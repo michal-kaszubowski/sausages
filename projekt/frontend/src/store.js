@@ -14,9 +14,9 @@ const oneReducer = combineReducers({
     spices: spiceReducer
 });
 
-export const updateStore = () => {
-    store.dispatch(fetchManufacturers());
+export const fetchStore = () => {
     store.dispatch(fetchSausages());
+    store.dispatch(fetchManufacturers());
     store.dispatch(fetchSpices());
 }
 
