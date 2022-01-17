@@ -1,59 +1,32 @@
 import axios from "axios";
-import {
-    addSpiceSuccess,
-    deleteSpiceSuccess,
-    fetchSpicesSuccess,
-    updateSpiceSuccess
-} from "./actions";
+import {addSpiceSuccess, deleteSpiceSuccess, fetchSpicesSuccess, updateSpiceSuccess} from "./actions";
 
 const port = process.env.PORT || 5000
 
-export const fetchSpices = () => {
-    return async dispatch => {
-        try {
-            await axios
-                .get(`http://localhost:${port}/spices`)
-                .then(response => {
-                    dispatch(fetchSpicesSuccess(response.data));
-                });
-        } catch (err) {
-            console.log(err);
-        }
-    }
+export const fetchSpices = () => async dispatch => {
+    await axios
+        .get(`http://localhost:${port}/spices`)
+        .then(response => dispatch(fetchSpicesSuccess(response.data)))
+        .catch(err => console.error(err));
 }
 
-export const addSpice = payload => {
-    return async dispatch => {
-        try {
-            await axios
-                .post(`http://localhost:${port}/spices`, payload);
-            dispatch(addSpiceSuccess(payload));
-        } catch (err) {
-            console.log(err);
-        }
-    }
+export const addSpice = payload => async dispatch => {
+    await axios
+        .post(`http://localhost:${port}/spices`, payload)
+        .then(() => dispatch(addSpiceSuccess(payload)))
+        .catch(err => console.error(err));
 }
 
-export const updateSpice = payload => {
-    return async dispatch => {
-        try {
-            await axios
-                .put(`http://localhost:${port}/spices/:${payload.id}`, payload);
-            dispatch(updateSpiceSuccess(payload));
-        } catch (err) {
-            console.log(err);
-        }
-    }
+export const updateSpice = payload => async dispatch => {
+    await axios
+        .put(`http://localhost:${port}/spices/:${payload.id}`, payload)
+        .then(dispatch(updateSpiceSuccess(payload)))
+        .catch(err => console.error(err));
 }
 
-export const deleteSpice = payload => {
-    return async dispatch => {
-        try {
-            await axios
-                .post(`http://localhost:${port}/spices/:${payload.id}`);
-            dispatch(deleteSpiceSuccess(payload));
-        } catch (err) {
-            console.log(err);
-        }
-    }
+export const deleteSpice = payload => async dispatch => {
+    await axios
+        .post(`http://localhost:${port}/spices/:${payload.id}`)
+        .then(() => dispatch(deleteSpiceSuccess(payload)))
+        .catch(err => console.error(err));
 }
