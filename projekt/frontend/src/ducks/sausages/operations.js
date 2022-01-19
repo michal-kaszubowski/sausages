@@ -1,9 +1,7 @@
 import axios from "axios";
 import {
-    // addSausageSuccess,
     deleteSausageSuccess,
     fetchSausagesSuccess,
-    // updateSausageSuccess,
     addSpiceToSausageSuccess
 } from "./actions";
 
@@ -23,9 +21,9 @@ export const addSausage = payload => async dispatch => {
         .catch(err => console.error(err));
 }
 
-export const updateSausage = (id, payload) => async dispatch => {
+export const updateSausage = payload => async dispatch => {
     await axios
-        .put(`http://localhost:${port}/sausages/${id}`, payload)
+        .put(`http://localhost:${port}/sausages/${payload._id}`, payload)
         .then(() => dispatch(fetchSausages()))
         .catch(err => console.error(err));
 }

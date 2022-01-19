@@ -25,7 +25,7 @@ const SausageEdit = ({state}) => {
                 }}
                 validationSchema={sausageValidationSchema}
                 onSubmit={values => {
-                    dispatch(updateSausage(cache._id, values));
+                    dispatch(updateSausage({_id: cache._id, ...values}));
                     navigate("/");
                 }}
             >

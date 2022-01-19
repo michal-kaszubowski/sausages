@@ -3,16 +3,6 @@ export const fetchSausagesSuccess = payload => ({
     payload
 });
 
-// export const addSausageSuccess = payload => ({
-//     type: 'ADD_SAUSAGE',
-//     payload
-// });
-//
-// export const updateSausageSuccess = payload => ({
-//     type: 'UPDATE_SAUSAGE',
-//     payload
-// });
-
 export const deleteSausageSuccess = payload => ({
     type: 'DELETE_SAUSAGE',
     payload
