@@ -4,9 +4,9 @@ const sausageValidationSchema = () => {
     return Yup.object().shape({
         type: Yup.string()
             .required("Brak gatunku!")
-            .min(5, "Nazwa jest za krótka!"),
+            .min(6, "Nazwa jest za krótka!"),
         origin: Yup.string()
-            .min(5, "Nazwa jest za krótka!")
+            .min(6, "Nazwa jest za krótka!")
             .nullable(),
         price: Yup.number()
             .required("Cena jest wymagana!")

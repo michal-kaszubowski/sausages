@@ -1,6 +1,6 @@
 import * as Yup from "yup";
 
-const manufacturerValidationSchema = () => {
+const spiceValidationSchema = () => {
     return Yup.object().shape({
         name: Yup.string()
             .required("Brak nazwy!")
@@ -8,11 +8,11 @@ const manufacturerValidationSchema = () => {
         origin: Yup.string()
             .min(6, "Nazwa jest za krótka!")
             .nullable(),
-        established: Yup.number()
-            .required("Data jest wymagana!")
-            .moreThan(1600, "Dość archaicznie...")
-            .lessThan(2022, "Ej, wracasz z przyszłości?")
+        price: Yup.number()
+            .required("Cena jest wymagana!")
+            .moreThan(0, "Nic nie jest za darmo :/")
+            .lessThan(50, "Nie przesadzasz? To tylko kawałek zielska!")
     });
 }
 
-export default manufacturerValidationSchema;
+export default spiceValidationSchema;
