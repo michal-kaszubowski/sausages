@@ -41,7 +41,7 @@ router.get('/:id', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     try {
-        await Sausage.findOneAndReplace({_id: req.params.id}, req.body, err =>
+        await Sausage.findOneAndReplace({_id: req.params.id}, req.body, null,err =>
             err ? console.log(err) : res.send(">$ OK, replaced")
         );
     } catch (error) {
@@ -52,7 +52,7 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     try {
-        await Sausage.findOneAndRemove({_id: req.params.id}, err =>
+        await Sausage.findOneAndRemove({_id: req.params.id}, null,err =>
             err ? console.log(err) : res.send(">$ OK, removed")
         );
     } catch (error) {
@@ -63,7 +63,7 @@ router.delete('/:id', async (req, res) => {
 
 router.patch('/:id', async (req, res) => {
     try {
-        await Sausage.findOneAndUpdate({_id: req.params.id}, req.body, err =>
+        await Sausage.findOneAndUpdate({_id: req.params.id}, req.body, null,err =>
             err ? console.log(err) : res.send(">$ OK, updated")
         );
     } catch (error) {

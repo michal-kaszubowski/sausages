@@ -61,8 +61,9 @@ const SausageDetails = ({sausage}) => {
                 <button id="edit" onClick={() => navigate("/sausages/edit")}>&#9881;</button>
                 <button id="delete" onClick={
                     () => {
-                        dispatch(deleteSausage(sausage));
-                        navigate("/")
+                        dispatch(deleteSausage(sausage))
+                            .then(navigate("/"))
+                            .catch(err => console.error(err));
                     }
                 }>&#128465;</button>
             </div>

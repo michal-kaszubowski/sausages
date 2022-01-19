@@ -36,7 +36,7 @@ router.get('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
     // Requires full object
     try {
-        await Manufacturer.findOneAndReplace({_id: req.params.id}, req.body, err =>
+        await Manufacturer.findOneAndReplace({_id: req.params.id}, req.body, null,err =>
             err ? console.log(err) : res.send(">$ OK, replaced")
         );
     } catch (error) {
@@ -47,7 +47,7 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     try {
-        await Manufacturer.findOneAndRemove({_id: req.params.id}, err =>
+        await Manufacturer.findOneAndRemove({_id: req.params.id}, null,err =>
             err ? console.log(err) : res.send(">$ OK, removed")
         );
     } catch (error) {
@@ -59,7 +59,7 @@ router.delete('/:id', async (req, res) => {
 router.patch('/:id', async (req, res) => {
     // Requires only these parameters which should be changed
     try {
-        await Manufacturer.findOneAndUpdate({_id: req.params.id}, req.body, err =>
+        await Manufacturer.findOneAndUpdate({_id: req.params.id}, req.body, null,err =>
             err ? console.log(err) : res.send(">$ OK, updated")
         );
     } catch (error) {

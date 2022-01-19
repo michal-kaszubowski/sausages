@@ -1,6 +1,10 @@
 import axios from "axios";
 import {
-    addSausageSuccess, deleteSausageSuccess, fetchSausagesSuccess, updateSausageSuccess, addSpiceToSausageSuccess
+    // addSausageSuccess,
+    deleteSausageSuccess,
+    fetchSausagesSuccess,
+    // updateSausageSuccess,
+    addSpiceToSausageSuccess
 } from "./actions";
 
 const port = process.env.PORT || 5000
@@ -15,27 +19,27 @@ export const fetchSausages = () => async dispatch => {
 export const addSausage = payload => async dispatch => {
     await axios
         .post(`http://localhost:${port}/sausages`, payload)
-        .then(() => dispatch(addSausageSuccess(payload)))
+        .then(() => dispatch(fetchSausages()))
         .catch(err => console.error(err));
 }
 
-export const updateSausage = payload => async dispatch => {
+export const updateSausage = (id, payload) => async dispatch => {
     await axios
-        .put(`http://localhost:${port}/sausages/:${payload.id}`, payload)
-        .then(() => dispatch(updateSausageSuccess(payload)))
+        .put(`http://localhost:${port}/sausages/${id}`, payload)
+        .then(() => dispatch(fetchSausages()))
         .catch(err => console.error(err));
 }
 
 export const deleteSausage = payload => async dispatch => {
     await axios
-        .delete(`http://localhost:${port}/sausages/:${payload.id}`)
+        .delete(`http://localhost:${port}/sausages/${payload._id}`)
         .then(() => dispatch(deleteSausageSuccess(payload)))
         .catch(err => console.error(err));
 }
 
 export const addSpiceToSausage = payload => async dispatch => {
     await axios
-        .patch(`http://localhost:${port}/sausages/:${payload.id}`, payload)
+        .patch(`http://localhost:${port}/sausages/${payload._id}`, payload)
         .then(() => dispatch(addSpiceToSausageSuccess(payload)))
         .catch(err => console.error(err));
 }
