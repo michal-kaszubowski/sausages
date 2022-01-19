@@ -3,7 +3,7 @@ import picture from "../sausage.jpg";
 import {cacheObject} from "../store";
 import {useNavigate} from "react-router-dom";
 
-const SausageList = ({state}) => {
+const SausageList = ({sausages}) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -12,7 +12,7 @@ const SausageList = ({state}) => {
             <div className="header">
                 <button id="add" onClick={() => navigate("/sausages/add")}>+</button>
             </div>
-            {state.sausages.map(sausage => (
+            {sausages.map(sausage => (
                 <div key={sausage._id}>
                     {sausage.image
                         ? (<img src={sausage.image} alt={sausage.type}/>)
@@ -33,6 +33,6 @@ const SausageList = ({state}) => {
     );
 }
 
-const mapStateToProps = state => ({state});
+const mapStateToProps = state => ({sausages: state.sausages});
 
 export default connect(mapStateToProps)(SausageList);
