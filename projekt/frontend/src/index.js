@@ -5,7 +5,7 @@ import {fetchStore, store} from "./store";
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 
-fetchStore()
+fetchStore();
 
 ReactDOM.render(
     <React.StrictMode>

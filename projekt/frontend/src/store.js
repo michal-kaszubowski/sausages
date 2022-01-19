@@ -8,7 +8,22 @@ import {fetchManufacturers} from "./ducks/manufacturers/operations";
 import {fetchSausages} from  "./ducks/sausages/operations";
 import {fetchSpices} from "./ducks/spices/operations";
 
+export const cacheObject = payload => ({
+    type: 'CACHE_OBJECT',
+    payload
+});
+
+const cacheReducer = (state = {}, action) => {
+    switch (action.type) {
+        case 'CACHE_OBJECT':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
 const oneReducer = combineReducers({
+    cache: cacheReducer,
     sausages: sausageReducer,
     manufacturers: manufacturerReducer,
     spices: spiceReducer
