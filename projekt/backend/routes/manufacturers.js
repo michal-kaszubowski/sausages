@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         await Manufacturer.create(req.body);
-        return res.send(">$ OK, created successfully");
+        return res.send(req.body);
     } catch (error) {
         console.log(">! ERROR cannot POST");
         console.error(error);
@@ -37,7 +37,7 @@ router.put('/:id', async (req, res) => {
     // Requires full object
     try {
         await Manufacturer.findOneAndReplace({_id: req.params.id}, req.body, null,err =>
-            err ? console.log(err) : res.send(">$ OK, replaced")
+            err ? console.log(err) : res.send(req.body)
         );
     } catch (error) {
         console.log(">! ERROR cannot PUT specified company");
@@ -48,7 +48,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     try {
         await Manufacturer.findOneAndRemove({_id: req.params.id}, null,err =>
-            err ? console.log(err) : res.send(">$ OK, removed")
+            err ? console.log(err) : res.send(req.params.id)
         );
     } catch (error) {
         console.log(">! ERROR cannot DELETE specified company");
@@ -60,7 +60,7 @@ router.patch('/:id', async (req, res) => {
     // Requires only these parameters which should be changed
     try {
         await Manufacturer.findOneAndUpdate({_id: req.params.id}, req.body, null,err =>
-            err ? console.log(err) : res.send(">$ OK, updated")
+            err ? console.log(err) : res.send(req.body)
         );
     } catch (error) {
         console.log(">! ERROR cannot PATCH specified company");
