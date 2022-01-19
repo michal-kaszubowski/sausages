@@ -4,10 +4,10 @@ import {
     Route,
     Link
 } from "react-router-dom";
-import AddSausage from "./AddSausage";
-import SausageList from "./SausageList";
-import SausageDetails from "./SausageDetails";
-import SausageEdit from "./SausageEdit";
+import AddSausage from "./sausages/SausageAdd";
+import SausageList from "./sausages/SausageList";
+import SausageDetails from "./sausages/SausageDetails";
+import SausageEdit from "./sausages/SausageEdit";
 
 const App = () => {
     return (

@@ -1,6 +1,6 @@
 import {connect, useDispatch} from "react-redux";
-import picture from "../sausage.jpg";
-import {cacheObject} from "../store";
+import picture from "../../sausage.jpg";
+import {cacheObject} from "../../store";
 import {useNavigate} from "react-router-dom";
 
 const SausageList = ({sausages}) => {

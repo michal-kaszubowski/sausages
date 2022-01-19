@@ -1,10 +1,10 @@
 import {Field, Form, Formik} from "formik";
-import sausageValidationSchema from "../sausageValidationSchema";
+import sausageValidationSchema from "../../sausageValidationSchema";
 import {connect, useDispatch} from "react-redux";
-import {addSausage} from "../ducks/sausages/operations";
+import {addSausage} from "../../ducks/sausages/operations";
 import {useNavigate} from "react-router-dom";
 
-const AddSausage = ({manufacturers, spices}) => {
+const SausageAdd = ({manufacturers, spices}) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -88,4 +88,4 @@ const AddSausage = ({manufacturers, spices}) => {
 
 const mapStateToProps = state => ({manufacturers: state.manufacturers, spices: state.spices});
 
-export default connect(mapStateToProps)(AddSausage);
+export default connect(mapStateToProps)(SausageAdd);
