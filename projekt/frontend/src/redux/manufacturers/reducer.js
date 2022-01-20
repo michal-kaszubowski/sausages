@@ -3,7 +3,7 @@ export const manufacturerReducer = (state = [], action) => {
         case 'FETCH_MANUFACTURERS':
             return action.payload;
         case 'DELETE_MANUFACTURER':
-            return state.filter(manufacturer => manufacturer.id !== action.payload._id);
+            return state.filter(manufacturer => manufacturer._id !== action.payload._id);
         default:
             return state;
     }

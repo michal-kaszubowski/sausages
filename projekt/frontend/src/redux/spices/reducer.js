@@ -3,7 +3,7 @@ export const spiceReducer = (state = [], action) => {
         case 'FETCH_SPICES':
             return action.payload;
         case 'DELETE_SPICE':
-            return state.filter(manufacturer => manufacturer.id !== action.payload._id);
+            return state.filter(spice => spice._id !== action.payload._id);
         default:
             return state;
     }

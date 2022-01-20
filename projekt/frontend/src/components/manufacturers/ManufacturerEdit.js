@@ -1,7 +1,7 @@
 import {Field, Form, Formik} from "formik";
-import manufacturerValidationSchema from "../../manufacturerValidationSchema";
+import manufacturerValidationSchema from "../../validation/manufacturerValidationSchema";
 import {connect, useDispatch} from "react-redux";
-import {updateManufacturer} from "../../ducks/manufacturers/operations";
+import {updateManufacturer} from "../../redux/manufacturers/operations";
 import {useNavigate} from "react-router-dom";
 
 const ManufacturerEdit = ({cache}) => {

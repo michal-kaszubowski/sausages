@@ -1,5 +1,5 @@
 import {connect, useDispatch} from "react-redux";
-import {deleteManufacturer} from "../../ducks/manufacturers/operations";
+import {deleteManufacturer} from "../../redux/manufacturers/operations";
 import {useNavigate} from "react-router-dom";
 
 const ManufacturerDetails = ({manufacturer}) => {

@@ -7,8 +7,8 @@ router.get('/', async (req, res) => {
     try {
         const result = await Sausage
             .find()
-            .populate('manufacturer', '-_id -__v')
-            .populate('spice', '-_id -__v');
+            .populate('manufacturer', '-__v')
+            .populate('spice', '-__v');
         return res.send(result);
     } catch (error) {
         console.log(">! ERROR cannot GET");

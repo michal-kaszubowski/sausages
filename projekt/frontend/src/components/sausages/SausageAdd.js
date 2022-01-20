@@ -1,7 +1,7 @@
 import {Field, Form, Formik} from "formik";
-import sausageValidationSchema from "../../sausageValidationSchema";
+import sausageValidationSchema from "../../validation/sausageValidationSchema";
 import {connect, useDispatch} from "react-redux";
-import {addSausage} from "../../ducks/sausages/operations";
+import {addSausage} from "../../redux/sausages/operations";
 import {useNavigate} from "react-router-dom";
 
 const SausageAdd = ({manufacturers, spices}) => {

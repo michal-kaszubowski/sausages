@@ -1,5 +1,5 @@
 import {connect, useDispatch} from "react-redux";
-import {deleteSausage} from "../../ducks/sausages/operations";
+import {deleteSausage} from "../../redux/sausages/operations";
 import {useNavigate} from "react-router-dom";
 import picture from "../../sausage.jpg";
 

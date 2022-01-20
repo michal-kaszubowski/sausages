@@ -1,7 +1,7 @@
 import {Field, Form, Formik} from "formik";
-import spiceValidationSchema from "../../spiceValidationSchema";
+import spiceValidationSchema from "../../validation/spiceValidationSchema";
 import {connect, useDispatch} from "react-redux";
-import {updateSpice} from "../../ducks/spices/operations";
+import {updateSpice} from "../../redux/spices/operations";
 import {useNavigate} from "react-router-dom";
 
 const SpiceEdit = ({cache}) => {
