@@ -42,7 +42,7 @@ const ManufacturerEdit = ({cache}) => {
 
                         <label>
                             <span>Rok założenia</span>
-                            <Field name="price"/>
+                            <Field name="established"/>
                             {touched.established && errors.established && <div>{errors.established}</div>}
                             <span>*</span>
                         </label>

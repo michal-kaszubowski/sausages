@@ -3,6 +3,11 @@ export const fetchSpicesSuccess = payload => ({
     payload
 });
 
+export const updateSpiceSuccess = payload => ({
+    type: 'UPDATE_SPICE',
+    payload
+});
+
 export const deleteSpiceSuccess = payload => ({
     type: 'DELETE_SPICE',
     payload

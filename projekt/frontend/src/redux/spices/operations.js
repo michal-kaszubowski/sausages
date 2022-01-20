@@ -1,5 +1,6 @@
 import axios from "axios";
 import {
+    updateSpiceSuccess,
     deleteSpiceSuccess,
     fetchSpicesSuccess
 } from "./actions";
@@ -22,14 +23,14 @@ export const addSpice = payload => async dispatch => {
 
 export const updateSpice = payload => async dispatch => {
     await axios
-        .put(`http://localhost:${port}/spices/:${payload._id}`, payload)
-        .then(dispatch(fetchSpices()))
+        .put(`http://localhost:${port}/spices/${payload._id}`, payload)
+        .then(dispatch(updateSpiceSuccess(payload)))
         .catch(err => console.error(err));
 }
 
 export const deleteSpice = payload => async dispatch => {
     await axios
-        .post(`http://localhost:${port}/spices/:${payload._id}`)
+        .post(`http://localhost:${port}/spices/${payload._id}`)
         .then(() => dispatch(deleteSpiceSuccess(payload)))
         .catch(err => console.error(err));
 }

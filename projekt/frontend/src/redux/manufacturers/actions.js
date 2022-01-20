@@ -3,6 +3,11 @@ export const fetchManufacturersSuccess = payload => ({
     payload
 });
 
+export const updateManufacturerSuccess = payload => ({
+    type: 'UPDATE_MANUFACTURER',
+    payload
+});
+
 export const deleteManufacturerSuccess = payload => ({
     type: 'DELETE_MANUFACTURER',
     payload

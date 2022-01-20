@@ -1,5 +1,6 @@
 import axios from "axios";
 import {
+    updateManufacturerSuccess,
     fetchManufacturersSuccess,
     deleteManufacturerSuccess
 } from "./actions";
@@ -23,7 +24,7 @@ export const addManufacturer = payload => async dispatch => {
 export const updateManufacturer = payload => async dispatch => {
     await axios
         .put(`http://localhost:${port}/manufacturers/${payload._id}`, payload)
-        .then(() => dispatch(fetchManufacturers()))
+        .then(dispatch(updateManufacturerSuccess(payload)))
         .catch(err => console.error(err));
 }
 
