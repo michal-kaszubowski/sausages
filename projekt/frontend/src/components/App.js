@@ -19,15 +19,19 @@ import SpiceAdd from "./spices/SpiceAdd";
 import SpiceList from "./spices/SpiceList";
 import SpiceEdit from "./spices/SpiceEdit";
 
+import "../ui/App.css";
+
 const App = () => {
     return (
         <div className="App">
             <BrowserRouter>
-                <nav>
-                    <Link to="/">Kiełbaski</Link>
-                    <Link to="/manufacturers">Producenci</Link>
-                    <Link to="/spices">Zioła</Link>
-                </nav>
+                <div className="header">
+                    <nav>
+                        <Link to="/">Kiełbaski</Link>
+                        <Link to="/manufacturers">Producenci</Link>
+                        <Link to="/spices">Zioła</Link>
+                    </nav>
+                </div>
                 <Routes>
                     <Route exact path="/" element={<SausageList/>}/>
                     <Route path="/sausages/add" element={<SausageAdd/>}/>

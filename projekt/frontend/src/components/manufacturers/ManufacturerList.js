@@ -25,17 +25,20 @@ const ManufacturerList = ({manufacturers}) => {
                 </div>
             </div>
 
-            {sorted.map(manufacturer => (
-                <div key={manufacturer._id}>
-                    <div>{manufacturer.name}</div>
-                    <button id="details" onClick={
-                        () => {
-                            dispatch(cacheObject(manufacturer));
-                            navigate("/manufacturers/details");
-                        }
-                    }>...</button>
-                </div>
-            ))}
+            <div className="list">
+                {sorted.map(manufacturer => (
+                    <div className="item" key={manufacturer._id}>
+                        <div>{manufacturer.name}</div>
+                        <button id="details" onClick={
+                            () => {
+                                dispatch(cacheObject(manufacturer));
+                                navigate("/manufacturers/details");
+                            }
+                        }>...
+                        </button>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }

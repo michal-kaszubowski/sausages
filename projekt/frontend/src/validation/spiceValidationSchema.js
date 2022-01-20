@@ -4,9 +4,9 @@ const spiceValidationSchema = () => {
     return Yup.object().shape({
         name: Yup.string()
             .required("Brak nazwy!")
-            .min(6, "Nazwa jest za krótka!"),
+            .min(5, "Nazwa jest za krótka!"),
         origin: Yup.string()
-            .min(6, "Nazwa jest za krótka!")
+            .min(5, "Nazwa jest za krótka!")
             .nullable(),
         price: Yup.number()
             .required("Cena jest wymagana!")

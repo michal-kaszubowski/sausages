@@ -24,28 +24,30 @@ const SpiceList = ({spices}) => {
                     </select>
                 </div>
             </div>
-            {sorted.map(spice => (
-                <div key={spice._id}>
-                    <div>
-                        <span>{spice.name}</span>
-                        <span>z</span>
-                        {spice.origin
-                            ? (<span>{spice.origin}</span>)
-                            : (<span>Brak danych</span>)
-                        }
+            <div className="list">
+                {sorted.map(spice => (
+                    <div className="item" key={spice._id}>
+                        <div>
+                            <span>{spice.name}</span>
+                            <span>z</span>
+                            {spice.origin
+                                ? (<span>{spice.origin}</span>)
+                                : (<span>Brak danych</span>)
+                            }
+                        </div>
+                        <div>
+                            <span>zł/100g:</span>
+                            <span>{spice.price}</span>
+                        </div>
+                        <button id="edit" onClick={
+                            () => {
+                                dispatch(cacheObject(spice));
+                                navigate("/spices/edit");
+                            }
+                        }>&#9881;</button>
                     </div>
-                    <div>
-                        <span>zł/100g:</span>
-                        <span>{spice.price}</span>
-                    </div>
-                    <button id="edit" onClick={
-                        () => {
-                            dispatch(cacheObject(spice));
-                            navigate("/spices/edit");
-                        }
-                    }>&#9881;</button>
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
     );
 }
